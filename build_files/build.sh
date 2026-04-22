@@ -20,6 +20,7 @@ popd
 
 ### Install surface packages
 dnf5 install --allowerasing -y kernel-surface iptsd libwacom-surface surface-secureboot
+dnf5 remove -y kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
 
 # Restore kernel-install
 pushd /usr/lib/kernel/install.d
