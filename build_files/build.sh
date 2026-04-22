@@ -9,7 +9,7 @@ rpm --erase kernel kernel-core kernel-modules kernel-modules-core kernel-modules
 dnf5 config-manager addrepo --from-repofile=https://pkg.surfacelinux.com/fedora/linux-surface.repo
 
 ### Install surface packages
-dnf5 install --allowerasing kernel-surface iptsd libwacom-surface surface-secureboot
+dnf5 install --allowerasing -y kernel-surface iptsd libwacom-surface surface-secureboot
 
 ### Install packages
 
