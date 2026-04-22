@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/kinoite-main:stable
+FROM ghcr.io/ublue-os/kinoite-main:latest
 
 RUN rm /opt && mkdir /opt
 
