@@ -30,6 +30,13 @@ mv -f 50-dracut.install.bak 50-dracut.install
 
 popd
 
+### Force dracut
+KVER=$(ls /usr/lib/modules)
+
+dracut --force \
+  "/boot/initramfs-${KVER}.img" \
+  "${KVER}"
+
 ### Install packages
 
 dnf5 install -y tmux 
