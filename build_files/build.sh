@@ -30,11 +30,6 @@ mv -f 50-dracut.install.bak 50-dracut.install
 
 popd
 
-### Force dracut
-KVER=$(rpm -q kernel-surface-core --qf '%{VERSION}-%{RELEASE}.%{ARCH}')
-
-kernel-install add "${KVER}" "/usr/lib/modules/${KVER}/vmlinuz"
-
 ### Install packages
 
 dnf5 install -y tmux 
