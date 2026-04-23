@@ -20,7 +20,7 @@ popd
 
 ### Install surface packages
 dnf5 install --allowerasing -y kernel-surface iptsd libwacom-surface surface-secureboot
-dnf5 remove -y kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
+rpm -qa 'kernel*' | grep -v surface | xargs -r dnf5 remove -y
 
 # Restore kernel-install
 pushd /usr/lib/kernel/install.d
@@ -31,11 +31,9 @@ mv -f 50-dracut.install.bak 50-dracut.install
 popd
 
 ### Force dracut
-KVER=$(ls /usr/lib/modules)
+KVER=$(rpm -q kernel-surface-core --qf '%{VERSION}-%{RELEASE}.%{ARCH}')
 
-dracut --force \
-  "/boot/initramfs-${KVER}.img" \
-  "${KVER}"
+kernel-install add "${KVER}" "/usr/lib/modules/${KVER}/vmlinuz"
 
 ### Install packages
 
