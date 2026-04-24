@@ -62,6 +62,7 @@ PACKAGES=(
     tesseract-langpack-{eng,deu,fra,spa,por,ita,pol,fin,nld,jpn,jpn_vert,hin,chi_sim,chi_sim_vert,chi_tra,chi_tra_vert}
     vim
     uld
+    btop
 )
 dnf5 -y install "${PACKAGES[@]}"
 
