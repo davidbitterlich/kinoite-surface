@@ -88,6 +88,6 @@ EXCLUDED_PACKAGES=(
     plasma-welcome-fedora
     podman-docker
 )
-dnf5 -y remove "${INSTALLED_EXCLUDED[@]}"
+dnf5 -y remove "${EXCLUDED_PACKAGES[@]}"
 
 systemctl enable podman.socket
