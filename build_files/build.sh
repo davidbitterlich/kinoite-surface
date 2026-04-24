@@ -63,6 +63,8 @@ PACKAGES=(
     vim
     uld
     btop
+    qemu
+    qemu-kvm
 )
 dnf5 -y install "${PACKAGES[@]}"
 
