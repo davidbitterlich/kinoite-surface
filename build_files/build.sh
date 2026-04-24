@@ -31,7 +31,62 @@ mv -f 50-dracut.install.bak 50-dracut.install
 popd
 
 ### Install packages
+PACKAGES=(
+    tmux
+    screen
+    distrobox
+    gvfs
+    gvfs-fuse
+    zsh
+    autofs
+    evtest
+    fastfetch
+    git-credential-libsecret
+    gvfs
+    gvfs-fuse
+    igt-gpu-tools
+    input-remapper
+    iwd
+    krb5-workstation
+    ksystemlog
+    libxcrypt-compat
+    lm_sensors
+    oddjob-mkhomedir
+    plasma-wallpapers-dynamic
+    rclone
+    samba-winbind
+    samba-winbind-clients
+    samba-winbind-modules
+    setools-console
+    tesseract-devel
+    tesseract-langpack-{eng,deu,fra,spa,por,ita,pol,fin,nld,jpn,jpn_vert,hin,chi_sim,chi_sim_vert,chi_tra,chi_tra_vert}
+    vim
+    uld
+)
+dnf5 -y install "${PACKAGES[@]}"
 
-dnf5 install -y tmux 
+### Remove packages
+EXCLUDED_PACKAGES=(
+    akonadi-server
+    akonadi-server-mysql
+    default-fonts-cjk-sans
+    fedora-bookmarks
+    fedora-chromium-config
+    fedora-chromium-config-kde
+    fedora-third-party
+    ffmpegthumbnailer
+    firefox
+    firefox-langpacks
+    google-noto-sans-cjk-vf-fonts
+    kcharselect
+    khelpcenter
+    krfb
+    krfb-libs
+    plasma-discover-kns
+    plasma-discover-rpm-ostree
+    plasma-welcome-fedora
+    podman-docker
+)
+dnf5 -y remove "${INSTALLED_EXCLUDED[@]}"
 
 systemctl enable podman.socket

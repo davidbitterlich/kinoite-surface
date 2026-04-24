@@ -14,6 +14,7 @@ dracut \
   --no-hostonly \
   --kver "${KVER}" \
   --reproducible \
+  -v \
   --add ostree \
   -f "/lib/modules/${KVER}/initramfs.img"
 
