@@ -65,6 +65,23 @@ PACKAGES=(
     btop
     qemu
     qemu-kvm
+    qemu-img
+    qemu-char-spice
+    qemu-device-display-virtio-gpu
+    qemu-device-display-virtio-vga
+    qemu-device-usb-redirect
+    qemu-system-x86-core
+    qemu-user-binfmt
+    qemu-user-static
+    p7zip
+    p7zip-plugins
+    virt-viewer
+    podman-compose
+    podman-machine
+    podman-tui
+    libvirt
+    libvirt-nss
+    edk2-ovmf
 )
 dnf5 -y install "${PACKAGES[@]}"
 
