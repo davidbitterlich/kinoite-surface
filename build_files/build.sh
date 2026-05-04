@@ -4,6 +4,8 @@ set -ouex pipefail
 
 ### Add the surface kernel repository
 dnf5 config-manager addrepo --from-repofile=https://pkg.surfacelinux.com/fedora/linux-surface.repo
+# temporary fix for https://github.com/linux-surface/linux-surface/issues/2094 until we get official Fedora 44 support
+sed -i 's,baseurl=https://pkg.surfacelinux.com/fedora/f$releasever/,baseurl=https://pkg.surfacelinux.com/fedora/f43/,g' /etc/yum.repos.d/linux-surface.repo
 
 ### disable kernel-install hooks
 pushd /usr/lib/kernel/install.d
