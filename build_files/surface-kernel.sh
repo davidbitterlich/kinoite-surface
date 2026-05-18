@@ -16,7 +16,7 @@ chmod +x 05-rpmostree.install 50-dracut.install
 popd
 
 ### Install surface packages
-dnf5 install -y --allowerasing /tmp/*.rpm
+dnf5 install -y --allowerasing /tmp/packages/*.rpm
 rpm -qa 'kernel*' | grep -v surface | xargs -r dnf5 remove -y
 
 # Restore kernel-install
